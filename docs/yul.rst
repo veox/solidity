@@ -6,8 +6,6 @@ Yul
 
 .. index:: ! assembly, ! asm, ! evmasm, ! yul, julia, iulia
 
-.. highlight:: yul
-
 Yul (previously also called JULIA or IULIA) is an intermediate language that can be
 compiled to bytecode for different backends.
 
@@ -182,14 +180,14 @@ bitwise ``and`` with the string "abc" is computed.
 The final value is assigned to a local variable called ``x``.
 Strings are stored left-aligned and cannot be longer than 32 bytes.
 
-.. code-block::
+.. code-block:: yul
 
     let x := and("abc", add(3, 2))
 
 Unless it is the default type, the type of a literal
 has to be specified after a colon:
 
-.. code-block::
+.. code-block:: yul
 
     let x := and("abc":uint32, add(3:uint256, 2:uint256))
 
@@ -203,7 +201,7 @@ If the function returns a single value, it can be directly used
 inside an expression again. If it returns multiple values,
 they have to be assigned to local variables.
 
-.. code-block::
+.. code-block:: yul
 
     mstore(0x80, add(mload(0x80), 3))
     // Here, the user-defined function `f` returns
@@ -244,7 +242,7 @@ Future dialects migh introduce specific types for such pointers.
 When a variable is referenced, its current value is copied.
 For the EVM, this translates to a ``DUP`` instruction.
 
-.. code-block::
+.. code-block:: yul
 
     {
         let zero := 0
@@ -262,7 +260,7 @@ you denote that following a colon. You can also declare multiple
 variables in one statement when you assign from a function call
 that returns multiple values.
 
-.. code-block::
+.. code-block:: yul
 
     {
         let zero:uint32 := 0:uint32
@@ -285,7 +283,7 @@ values have to match.
 If you want to assign the values returned from a function that has
 multiple return parameters, you have to provide multiple variables.
 
-.. code-block::
+.. code-block:: yul
 
     let v := 0
     // re-assign v
@@ -303,7 +301,7 @@ The if statement can be used for conditionally executing code.
 No "else" block can be defined. Consider using "switch" instead (see below) if
 you need multiple alternatives.
 
-.. code-block::
+.. code-block:: yul
 
     if eq(value, 0) { revert(0, 0) }
 
@@ -319,7 +317,7 @@ Contrary to other programming languages, for safety reasons, control flow does
 not continue from one case to the next. There can be a fallback or default
 case called ``default`` which is taken if none of the literal constants matches.
 
-.. code-block::
+.. code-block:: yul
 
     {
         let x := 0
@@ -351,7 +349,7 @@ or skip to the post-part, respectively.
 
 The following example computes the sum of an area in memory.
 
-.. code-block::
+.. code-block:: yul
 
     {
         let x := 0
@@ -363,7 +361,7 @@ The following example computes the sum of an area in memory.
 For loops can also be used as a replacement for while loops:
 Simply leave the initialization and post-iteration parts empty.
 
-.. code-block::
+.. code-block:: yul
 
     {
         let x := 0
@@ -406,7 +404,7 @@ the current yul function.
 
 The following example implements the power function by square-and-multiply.
 
-.. code-block::
+.. code-block:: yul
 
     {
         function power(base, exponent) -> result {
@@ -929,7 +927,7 @@ Above, ``Block`` refers to ``Block`` in the Yul code grammar explained in the pr
 
 An example Yul Object is shown below:
 
-.. code-block::
+.. code-block:: yul
 
     // A contract consists of a single object with sub-objects representing
     // the code to be deployed or other contracts it can create.
