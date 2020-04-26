@@ -70,7 +70,7 @@ The following example program is written in the EVM dialect and computes exponen
 It can be compiled using ``solc --strict-assembly``. The builtin functions
 ``mul`` and ``div`` compute product and division, respectively.
 
-.. code::
+.. code-block:: yul
 
     {
         function power(base, exponent) -> result
@@ -91,7 +91,7 @@ It is also possible to implement the same function using a for-loop
 instead of with recursion. Here, ``lt(a, b)`` computes whether ``a`` is less than ``b``.
 less-than comparison.
 
-.. code::
+.. code-block:: yul
 
     {
         function power(base, exponent) -> result
