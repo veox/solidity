@@ -427,7 +427,7 @@ Specification of Yul
 This chapter describes Yul code formally. Yul code is usually placed inside Yul objects,
 which are explained in their own chapter.
 
-.. code:: none
+.. code-block:: none
 
     Block = '{' Statement* '}'
     Statement =
@@ -590,7 +590,7 @@ For an identifier ``v``, let ``$v`` be the name of the identifier.
 
 We will use a destructuring notation for the AST nodes.
 
-.. code:: none
+.. code-block:: none
 
     E(G, L, <{St1, ..., Stn}>: Block) =
         let G1, L1, mode = E(G, L, St1, ..., Stn)
@@ -917,7 +917,7 @@ Hex strings can be used to specify data in hex encoding,
 regular strings in native encoding. For code,
 ``datacopy`` will access its assembled binary representation.
 
-.. code:: none
+.. code-block:: none
 
     Object = 'object' StringLiteral '{' Code ( Object | Data )* '}'
     Code = 'code' Block
