@@ -427,7 +427,7 @@ Specification of Yul
 This chapter describes Yul code formally. Yul code is usually placed inside Yul objects,
 which are explained in their own chapter.
 
-.. code:: peg
+.. code:: none
 
     Block = '{' Statement* '}'
     Statement =
@@ -917,7 +917,7 @@ Hex strings can be used to specify data in hex encoding,
 regular strings in native encoding. For code,
 ``datacopy`` will access its assembled binary representation.
 
-.. code:: peg
+.. code:: none
 
     Object = 'object' StringLiteral '{' Code ( Object | Data )* '}'
     Code = 'code' Block
