@@ -6,6 +6,8 @@ Yul
 
 .. index:: ! assembly, ! asm, ! evmasm, ! yul, julia, iulia
 
+.. highlight:: yul
+
 Yul (previously also called JULIA or IULIA) is an intermediate language that can be
 compiled to bytecode for different backends.
 
@@ -115,7 +117,7 @@ This will use the :ref:`Yul object notation <yul-object>` so that it is possible
 to code as data to deploy contracts. This Yul mode is available for the commandline compiler
 (use ``--strict-assembly``) and for the :ref:`standard-json interface <compiler-api>`:
 
-::
+.. code:: json
 
     {
         "language": "Yul",
@@ -425,7 +427,7 @@ Specification of Yul
 This chapter describes Yul code formally. Yul code is usually placed inside Yul objects,
 which are explained in their own chapter.
 
-Grammar::
+.. code:: peg
 
     Block = '{' Statement* '}'
     Statement =
@@ -588,7 +590,7 @@ For an identifier ``v``, let ``$v`` be the name of the identifier.
 
 We will use a destructuring notation for the AST nodes.
 
-.. code::
+.. code:: none
 
     E(G, L, <{St1, ..., Stn}>: Block) =
         let G1, L1, mode = E(G, L, St1, ..., Stn)
@@ -915,7 +917,7 @@ Hex strings can be used to specify data in hex encoding,
 regular strings in native encoding. For code,
 ``datacopy`` will access its assembled binary representation.
 
-Grammar::
+.. code:: peg
 
     Object = 'object' StringLiteral '{' Code ( Object | Data )* '}'
     Code = 'code' Block
@@ -1010,7 +1012,7 @@ for more details about its internals.
 
 If you want to use Solidity in stand-alone Yul mode, you activate the optimizer using ``--optimize``:
 
-::
+.. code:: sh
 
     solc --strict-assembly --optimize
 
